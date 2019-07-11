@@ -5,8 +5,9 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
-        System.out.println( "Hello World!" );
-        System.out.println( "Hello World!" );
+        InputOutputOperations inputOperations = new InputOutputOperations();
+        inputOperations.inputConvertSide();
+        inputOperations.exitProgram();
+
     }
 }
