@@ -5,14 +5,16 @@ import java.util.Scanner;
 public class InputOutputOperations {
 
     private Scanner scn = new Scanner(System.in);
-    private int sideOfConvert;
+    private Double sideOfConvert;
+    private Integer exitOrContinue;
     private String inputString;
 
-    public int inputConvertSide() {
+    public Double inputConvertSide() {
         while (true) {
-            if (scn.hasNextInt()) {
+            System.out.println("Enter Sides Of Convert");
+            if (scn.hasNextDouble()) {
                 inputString = scn.next();
-                sideOfConvert = Integer.parseInt(inputString);
+                sideOfConvert = Double.parseDouble(inputString);
                 System.out.println("Side of Convert saved successfuly");
                 break;
             } else {
@@ -29,7 +31,7 @@ public class InputOutputOperations {
             // Input the choice digit //
             while (true) {
                 if (scn.hasNextInt()) {
-                    sideOfConvert = scn.nextInt();
+                    exitOrContinue = scn.nextInt();
                     break;
                 } else {
                     System.out.println("ERROR INPUT" + "\n" + "Leave The Program: 1, Continue: 2");
@@ -37,12 +39,12 @@ public class InputOutputOperations {
                 }
             }
             // Check the choice (1 or 2)//
-            if (sideOfConvert >= 1 && sideOfConvert <= 2) {
+            if (exitOrContinue >= 1 && exitOrContinue <= 2) {
                 break;
             } else {
                 System.out.println("ERROR INPUT" + "\n" + "Leave Comix Library: 1, Continue: 2");
             }
         }
-        return sideOfConvert;
+        return exitOrContinue;
     }
 }
