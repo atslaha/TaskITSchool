@@ -1,46 +1,30 @@
 package il.co.tasks;
 
-
-import java.util.Collections;
-
 public class App {
     public static void main(String[] args) {
-        Integer exitOrContinue;
-        Double a,b,c,d;
+        int exitOrContinue;
         ConvertDomain firstConvert = new ConvertDomain();
         ConvertDomain secondConvert = new ConvertDomain();
         InputOutputOperations inputOperations = new InputOutputOperations();
 
         while (true) {
 
-                firstConvert.setConvertSides(inputOperations.inputConvertSide());
-                firstConvert.setConvertSides(inputOperations.inputConvertSide());
-                secondConvert.setConvertSides(inputOperations.inputConvertSide());
-                secondConvert.setConvertSides(inputOperations.inputConvertSide());
+                firstConvert.setSideA(inputOperations.inputConvertSide());
+                firstConvert.setSideB(inputOperations.inputConvertSide());
+                secondConvert.setSideA(inputOperations.inputConvertSide());
+                secondConvert.setSideB(inputOperations.inputConvertSide());
 
-                Collections.sort(firstConvert.getConvertSides());
-                Collections.sort(secondConvert.getConvertSides());
+            System.out.println(ConvertComparator.convertCompare(firstConvert, secondConvert));
 
-                a = firstConvert.getConvertSides().get(0);
-                b = firstConvert.getConvertSides().get(1);
-                c = secondConvert.getConvertSides().get(0);
-                d = secondConvert.getConvertSides().get(1);
-
-                if ((a > c)&& (a > d) && (b > d)){
-                    System.out.println("You can put the second Convert inside First one");
-                }else
-                if ((c >a) && (c > b) && (d > b)){
-                    System.out.println("You can put the first Convert inside Second one");
-                }
-                else System.out.println("You can't put any Convert inside each other");
-
-            System.out.println(firstConvert.getConvertSides());
-            System.out.println(secondConvert.getConvertSides());
+            System.out.println(firstConvert.toString());
+            System.out.println(secondConvert.toString());
 
                 // Exit the program or continue;
                 System.out.println("Continue: 1, Exit 2 ");
-                firstConvert.getConvertSides().clear();
-                secondConvert.getConvertSides().clear();
+                firstConvert.setSideA(0);
+                firstConvert.setSideB(0);
+                secondConvert.setSideA(0);
+                secondConvert.setSideB(0);
             exitOrContinue = inputOperations.exitProgram();
                 if (exitOrContinue == 2) {
                     break;
